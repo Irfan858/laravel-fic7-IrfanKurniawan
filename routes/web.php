@@ -20,5 +20,12 @@ use function PHPSTORM_META\type;
 // });
 
 Route::get('/', function () {
-    return view('pages.blank-page', ['type_menu' => '']);
+    // return view('welcome');
+    return view('auth.login', ['type_menu' => '']);
+});
+
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('home', function () {
+        return view('pages.blank-page', ['type_menu' => '']);
+    })->name('home');
 });
