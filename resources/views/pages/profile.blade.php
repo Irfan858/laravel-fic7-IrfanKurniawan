@@ -56,30 +56,11 @@
                                 </div>
                                 {{ auth()->user()->bio }}
                             </div>
-                            <div class="card-footer text-center">
-                                <div class="font-weight-bold mb-2">Follow Ujang On</div>
-                                <a href="#"
-                                    class="btn btn-social-icon btn-facebook mr-1">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a href="#"
-                                    class="btn btn-social-icon btn-twitter mr-1">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                                <a href="#"
-                                    class="btn btn-social-icon btn-github mr-1">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="#"
-                                    class="btn btn-social-icon btn-instagram">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                            </div>
                         </div>
 
                         <div class="card">
                             <form method="post"
-                                action="{{ route('user-profile-information.update') }}"
+                                action="{{ route('user-password.update') }}"
                                 class="needs-validation"
                                 novalidate="">
                                 @csrf
@@ -93,9 +74,9 @@
                                             <label>Current Password</label>
                                             <input type="password"
                                                 name="current_password"
-                                                class="form-control @error('phone', 'updateProfileInformation') is-invalid @enderror"
+                                                class="form-control @error('current_password', 'updatePassword') is-invalid @enderror"
                                                 value="">
-                                                @error('phone', 'updateProfileInformation')
+                                                @error('current_password', 'updatePassword')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
                                                 </div>
@@ -105,10 +86,10 @@
                                             <label>New Password</label>
                                             <input type="password"
                                                 name="password"
-                                                class="form-control @error('name', 'updateProfileInformation') is-invalid @enderror"
+                                                class="form-control @error('password', 'updatePassword') is-invalid @enderror"
                                                 value=""
-                                                required="">
-                                           @error('name', 'updateProfileInformation')
+                                                required>
+                                           @error('password', 'updatePassword')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
                                             </div>
@@ -118,14 +99,9 @@
                                             <label>Password Confirmation</label>
                                             <input type="password"
                                                 name="password_confirmation"
-                                                class="form-control @error('name', 'updateProfileInformation') is-invalid @enderror"
+                                                class="form-control @error('password_confirmation', 'updatePassword') is-invalid @enderror"
                                                 value=""
-                                                required="">
-                                           @error('name', 'updateProfileInformation')
-                                            <div class="invalid-feedback">
-                                                {{ $message }}
-                                            </div>
-                                           @enderror
+                                                required>
                                         </div>
                                     </div>
                                    
@@ -156,11 +132,11 @@
                                                 class="form-control @error('name', 'updateProfileInformation') is-invalid @enderror"
                                                 value="{{ auth()->user()->name }}"
                                                 required="">
-                                           @error('name', 'updateProfileInformation')
-                                            <div class="invalid-feedback">
-                                                {{ $message }}
-                                            </div>
-                                           @enderror
+                                                @error('name', 'updateProfileInformation')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                                @enderror
                                         </div>
                                     </div>
                                     <div class="row">
