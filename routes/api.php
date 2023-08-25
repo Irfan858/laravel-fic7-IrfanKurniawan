@@ -28,8 +28,8 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
 
-Route::post('/image/upload', [UploadController::class, 'uploadImage']);
-Route::post('/image/upload-multiple', [UploadController::class, 'uploadMultipleImages']);
+Route::post('/image/upload', [UploadController::class, 'uploadImage'])->middleware('auth:sanctum');
+Route::post('/image/upload-multiple', [UploadController::class, 'uploadMultipleImages'])->middleware('auth:sanctum');
 
 
 
